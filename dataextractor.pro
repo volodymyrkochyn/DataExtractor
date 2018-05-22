@@ -1,4 +1,5 @@
 QT -= gui
+QT += sql xml
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -16,11 +17,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    databaseconnect.cpp \
     commandlineparser.cpp \
-    dataextractorapp.cpp
+    dataextractorapp.cpp \
+    configurationreader.cpp \
+    configuration.cpp \
+    application.cpp \
+    xmlconfigreader.cpp \
+    serializer.cpp \
+    sqlitedatabaseconnection.cpp
 
 HEADERS += \
-    databaseconnect.h \
     commandlineparser.h \
-    dataextractorapp.h
+    dataextractorapp.h \
+    configurationreader.h \
+    configuration.h \
+    application.h \
+    xmlconfigreader.h \
+    serializer.h \
+    databaseinterface.h \
+    sqlitedatabaseconnection.h

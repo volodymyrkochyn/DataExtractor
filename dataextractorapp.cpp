@@ -1,16 +1,24 @@
 #include "dataextractorapp.h"
+#include "configuration.h"
+#include "databaseinterface.h"
+
 #include <QDebug>
 
-DataExtractorApp::DataExtractorApp(const CommandLineParser &parser)
+#include <QSqlTableModel>
+
+DataExtractor::DataExtractor(const Configuration &config,
+                             const std::shared_ptr<DatabaseInterface> &db)
+    : _config(config),
+      _database(db)
 {
-    _config = parser.configFile();
 }
 
-void DataExtractorApp::exec()
+bool DataExtractor::process()
 {
-    qDebug("Execute data extracting...");
-    qDebug("Config:");
-    qDebug() << _config;
+    if (_database && _database->connect(_lastError))
+    {
+        return true;
+    }
 
-    exit(0);
+    return false;
 }
