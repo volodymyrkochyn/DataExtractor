@@ -5,7 +5,7 @@ void Configuration::setDatabasePath(const QString &databasePath)
     _databasePath = databasePath;
 }
 
-void Configuration::setTables(const QVector<QString> &tables)
+void Configuration::appendTable(const Table &t)
 {
-    _tables = tables;
+    _tables.append(t);
 }

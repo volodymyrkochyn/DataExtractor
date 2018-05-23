@@ -33,11 +33,13 @@ bool XmlConfigReader::readConfig(const QString &file)
         _config.setDatabasePath(element.toElement().text());
     }
 
-    auto tableList = document.elementsByTagName("tables");
+    auto tableList = document.elementsByTagName("table");
     for (int i = 0; i < tableList.count(); ++i)
     {
         auto element = tableList.at(i);
-        _config.setTables(element.toElement().text().split(", ").toVector());
+        const auto tableName = element.attributes().namedItem("name").nodeValue();
+        const auto columns = element.toElement().text();
+        _config.appendTable(Table(tableName, columns));
     }
     return true;
 }

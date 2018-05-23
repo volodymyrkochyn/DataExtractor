@@ -4,18 +4,26 @@
 #include <QString>
 #include <QVector>
 
+struct Table
+{
+    QString name;
+    QString columns;
+    Table(const QString &n, const QString &c) : name(n), columns(c) {}
+    Table() =default;
+};
+
 class Configuration
 {
 public:
     QString databasePath() const { return _databasePath; }
     void setDatabasePath(const QString &databasePath);
 
-    QVector<QString> tables() const { return _tables; }
-    void setTables(const QVector<QString> &tables);
+    QVector<Table> tables() const { return _tables; }
+    void appendTable(const Table &t);
 
 private:
     QString _databasePath;
-    QVector<QString> _tables;
+    QVector<Table> _tables;
 };
 
 #endif // CONFIGURATION_H

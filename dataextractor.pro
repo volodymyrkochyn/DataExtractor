@@ -24,7 +24,8 @@ SOURCES += \
     application.cpp \
     xmlconfigreader.cpp \
     serializer.cpp \
-    sqlitedatabaseconnection.cpp
+    sqlitedatabaseconnection.cpp \
+    modelserializer.cpp
 
 HEADERS += \
     commandlineparser.h \
@@ -35,4 +36,5 @@ HEADERS += \
     xmlconfigreader.h \
     serializer.h \
     databaseinterface.h \
-    sqlitedatabaseconnection.h
+    sqlitedatabaseconnection.h \
+    modelserializer.h

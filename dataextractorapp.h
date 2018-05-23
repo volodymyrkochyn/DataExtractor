@@ -7,6 +7,7 @@
 #include <memory>
 
 class DatabaseInterface;
+class QSqlQueryModel;
 
 class DataExtractor
 {
@@ -17,9 +18,13 @@ public:
     bool process();
 
 private:
+    static QSqlQueryModel *generateModel(const Table &table);
+
+private:
     QString _lastError;
     Configuration _config;
     std::shared_ptr<DatabaseInterface> _database{nullptr};
+    QList<QSqlQueryModel*> _models;
 };
 
 #endif // DATAEXTRACTORAPP_H

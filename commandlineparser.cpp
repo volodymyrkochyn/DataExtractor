@@ -11,6 +11,7 @@ CommandLineParser::CommandLineParser(const QStringList &arguments)
     auto args = _parser.positionalArguments();
     if (!args.isEmpty())
     {
+        // first arg must be config file
         _config = args.first();
     }
     else
