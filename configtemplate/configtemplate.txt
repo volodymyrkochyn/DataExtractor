@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <common>
+        <databasepath>some_file.db</databasepath>
+    </common>
+    <tables>
+        <table name="name_of_table">column1,column2,columnN</table>
+    </tables>
+</config>
